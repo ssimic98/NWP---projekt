@@ -69,7 +69,6 @@ class MovieController extends Controller
         'poster' => 'required|image|mimes:jpeg,png,jpg,gif',
     ]);
 
-    // Handle file upload
     if ($request->hasFile('poster')) {
         if($request->file('poster')->isValid())
         {
@@ -84,7 +83,7 @@ class MovieController extends Controller
         return back()->withErrors(['error' => 'No file uploaded.']);
     }
 
-    // Create the movie with all necessary fields
+    
     $movie = Movie::create([
         'name' => $request->name,
         'description' => $request->description,
